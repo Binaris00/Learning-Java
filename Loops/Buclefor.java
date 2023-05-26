@@ -1,4 +1,4 @@
-package DataStructures;
+package Loops;
 
 public class Buclefor {
    public static void main(String[] args) {
