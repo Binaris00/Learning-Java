@@ -1,4 +1,4 @@
-public class Multiplicationtable{
+public class ForMultiplicationtable{
    public static void main(String[] args) {
       for (int first=1;first<=10;first++){
 
