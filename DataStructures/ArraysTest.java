@@ -19,6 +19,8 @@ public class ArraysTest {
 
       int[] new_array = {1, 2, 3, 4, 5};
       System.out.println(new_array[2]);
+      System.out.println(new_array.length);
+
 
       String[] string_array = {"Hola", "Hello", "Bonjour"};
       System.out.println(string_array[1]);
