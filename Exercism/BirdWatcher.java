@@ -1,7 +1,7 @@
 package Exercism;
 /*
  * This exercise is from
- * https://exercism.org/tracks/java/exercises/annalyns-infiltration
+ * https://exercism.org/tracks/java/exercises/bird-watcher
  * 
  * If you want to see the original exercise you just need to check the link
  */
