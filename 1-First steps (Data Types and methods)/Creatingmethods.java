@@ -16,7 +16,7 @@ public class Creatingmethods {
       return a + b;
    }
 
-   public static String new_message(){
+   public String new_message(){
       return "This is a message";
    }
 }
