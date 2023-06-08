@@ -34,7 +34,6 @@ public class HashSet_Exercises {
    }
 
    // 6. Write a Java program to clone a hash set to another hash set.
-   public static void clone_hashSet(){another_words = (HashSet)words.clone();}
 
    //7. Write a Java program to convert a hash set to an array.
    public static void hashSet_to_array(){

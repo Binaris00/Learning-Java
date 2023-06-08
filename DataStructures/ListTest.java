@@ -14,6 +14,8 @@ public class ListTest {
 
       numbers.add(5, 2);
       System.out.println(numbers);
+      System.out.println(booleans);
+      System.out.println(strings);
 
 
 
