@@ -6,9 +6,12 @@ public class Tictactoe {
    // This start with 0 so the board index is 0-8 no 1-9 
    static String[] board = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
    static Scanner scanner = new Scanner(System.in);
+   
+   // To determine when a player win
    static boolean x_win = false;
    static boolean o_win = false;
 
+   
    public static String printBoard(){
       // I don't want to repeat this print in all the code...
       return board[0] + "|" + board[1] + "|" + board[2] + "|" + "\n" + 
@@ -26,6 +29,7 @@ public class Tictactoe {
          }
 
          else if (board[i] == "O" && board[i+1] == "O" && board[i+2] == "O"){
+            o_win = true;
             return false;
          }
       }
@@ -34,35 +38,37 @@ public class Tictactoe {
       // Columns wins
       for (int i = 0; i < 2; i++){
          if (board[0+i] == "X" && board[3+i] == "X" && board[6+i] == "X"){
+            x_win = true;
             return false;
          }
 
          else if (board[0+i] == "O" && board[3+i] == "O" && board[6+i] == "O"){
+            o_win = true;
             return false;
          }
       }
 
       // Diagonal wins
       if (board[0] == "X" && board[4] == "X" && board[8] == "X"){
+         x_win = true;
          return false;
       }
       else if (board[2] == "X" && board[4] == "X" && board[6] == "X"){
+         x_win = true;
          return false;
       }
 
       else if (board[0] == "O" && board[4] == "O" && board[8] == "O"){
+         o_win = true;
          return false;
       }
 
       else if (board[2] == "O" && board[4] == "O" && board[6] == "O"){
+         o_win = true;
          return false;
       }
-
+      // For continue the loop
       return true;
-   }
-
-   public static void boardUpdater(String player, int selected){
-      board[selected] = player;
    }
 
    public static void main(String[] args) {
@@ -76,23 +82,32 @@ public class Tictactoe {
       while(noWinners()){
          try {
 
-            System.out.println(x_win);
+            ///////////////////////////////////////////////// 
+            //X turn
+            ///////////////////////////////////////////////// 
             System.out.println(printBoard());
             System.out.println("X: What space you want to select? ");
             String x_option = scanner.nextLine();
 
-            if (board[Integer.parseInt(x_option)] != " "){break;}
-            boardUpdater("X", Integer.parseInt(x_option));
-            System.out.print("\033[H\033[2J");
 
-            System.out.println(x_win);
+            // if the selected space is not empty (X)
+            if (board[Integer.parseInt(x_option)] != " "){break;} else{board[Integer.parseInt(x_option)] = "X";}
+            System.out.print("\033[H\033[2J"); //Clear console
+            if (noWinners() == false){break;}
+
+
+
+            ///////////////////////////////////////////////// 
+            // O turn
+            ///////////////////////////////////////////////// 
             System.out.println(printBoard());
             System.out.println("O: What space you want to select? ");
             String o_option = scanner.nextLine();
             
-            if (board[Integer.parseInt(x_option)] != " "){break;}
-            boardUpdater("O", Integer.parseInt(o_option));
-            System.out.print("\033[H\033[2J");
+
+            // if the selected space is not empty (O)
+            if (board[Integer.parseInt(o_option)] != " "){break;} else {board[Integer.parseInt(o_option)] = "O";}
+            System.out.print("\033[H\033[2J"); //Clear console
 
            } 
          catch (NumberFormatException e) {
@@ -108,13 +123,10 @@ public class Tictactoe {
          catch (Exception e) {
             System.out.println("Error");
       }
-      
-      }
-      System.out.println("Function output: " + noWinners());
-      System.out.println("Variable: " + x_win);
-      System.out.println("Variable: " + o_win);
 
-      if (x_win){System.out.println("X win!!!!!!");}
+      }
+
+      if (x_win){System.out.println("X win!!!!!!");} else if (o_win){System.out.println("O win!!!!!!!");}
       
       
    }
