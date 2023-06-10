@@ -1,5 +1,6 @@
 package DataStructures;
 
+
 import java.util.List;
 
 public class ListTest {
@@ -12,7 +13,7 @@ public class ListTest {
       List<String> strings = List.of("Hola", "Adios", "Hi", "GoodBye");
 
 
-      numbers.add(5, 2);
+
       System.out.println(numbers);
       System.out.println(booleans);
       System.out.println(strings);
